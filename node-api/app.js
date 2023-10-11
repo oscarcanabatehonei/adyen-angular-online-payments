@@ -57,7 +57,8 @@ app.get('/api/config', (req,res) => {
 // Invoke /sessions endpoint
 app.post("/api/sessions", async (req, res) => {
 
-  try {
+  try
+  {
     // unique ref for the transaction
     const orderRef = uuidv4();
     // Ideally the data passed here should be computed based on business logic
@@ -72,7 +73,8 @@ app.post("/api/sessions", async (req, res) => {
         {quantity: 1, amountIncludingTax: 5000 , description: "Headphones"}
       ] ,
       returnUrl: `http://${req.headers.host}/api/handleShopperRedirect?orderRef=${orderRef}` // set redirect URL required for some payment methods
-    });
+    } );
+    console.log( response );
 
     res.json(response);
   } catch (err) {
